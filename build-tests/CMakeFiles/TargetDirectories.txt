@@ -1,0 +1,5 @@
+/srv/fb2/feng0732/0111-msdfgen-3-49a75b5f/build-tests/CMakeFiles/msdfgen-core.dir
+/srv/fb2/feng0732/0111-msdfgen-3-49a75b5f/build-tests/CMakeFiles/test-asymmetric-distance-range.dir
+/srv/fb2/feng0732/0111-msdfgen-3-49a75b5f/build-tests/CMakeFiles/test.dir
+/srv/fb2/feng0732/0111-msdfgen-3-49a75b5f/build-tests/CMakeFiles/edit_cache.dir
+/srv/fb2/feng0732/0111-msdfgen-3-49a75b5f/build-tests/CMakeFiles/rebuild_cache.dir

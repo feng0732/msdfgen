@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG "CMakeFiles/test-asymmetric-distance-range.dir/tests/test-asymmetric-distance-range.cpp.o" -o test-asymmetric-distance-range  libmsdfgen-core.a 

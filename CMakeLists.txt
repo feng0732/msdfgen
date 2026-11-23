@@ -11,6 +11,7 @@ option(MSDFGEN_USE_SKIA "Build with the Skia library" ON)
 option(MSDFGEN_DISABLE_SVG "Disable SVG support" OFF)
 option(MSDFGEN_DISABLE_PNG "Disable PNG support" OFF)
 option(MSDFGEN_INSTALL "Generate installation target" OFF)
+option(MSDFGEN_BUILD_TESTS "Build the msdfgen test suite" OFF)
 option(MSDFGEN_DYNAMIC_RUNTIME "Link dynamic runtime library instead of static" OFF)
 option(BUILD_SHARED_LIBS "Generate dynamic library files instead of static" OFF)
 
@@ -220,6 +221,14 @@ if(MSDFGEN_BUILD_STANDALONE)
     set_property(TARGET msdfgen PROPERTY MSVC_RUNTIME_LIBRARY "${MSDFGEN_MSVC_RUNTIME}")
     target_link_libraries(msdfgen PRIVATE msdfgen::msdfgen)
     set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT msdfgen)
+endif()
+
+# Tests (core library only, no GPU or external resources required)
+if(MSDFGEN_BUILD_TESTS)
+    enable_testing()
+    add_executable(test-asymmetric-distance-range "${CMAKE_CURRENT_SOURCE_DIR}/tests/test-asymmetric-distance-range.cpp")
+    target_link_libraries(test-asymmetric-distance-range PRIVATE msdfgen::msdfgen-core)
+    add_test(NAME asymmetric-distance-range COMMAND test-asymmetric-distance-range)
 endif()
 
 # Hide ZERO_CHECK and ALL_BUILD targets

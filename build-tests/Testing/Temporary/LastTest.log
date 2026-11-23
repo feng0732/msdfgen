@@ -1,0 +1,19 @@
+Start testing: Nov 23 16:32 UTC
+----------------------------------------------------------
+1/1 Testing: asymmetric-distance-range
+1/1 Test: asymmetric-distance-range
+Command: "/srv/fb2/feng0732/0111-msdfgen-3-49a75b5f/build-tests/test-asymmetric-distance-range"
+Directory: /srv/fb2/feng0732/0111-msdfgen-3-49a75b5f/build-tests
+"asymmetric-distance-range" start time: Nov 23 16:32 UTC
+Output:
+----------------------------------------------------------
+PASSED: all 412802 checks
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"asymmetric-distance-range" end time: Nov 23 16:32 UTC
+"asymmetric-distance-range" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 23 16:32 UTC
