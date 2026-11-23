@@ -13,6 +13,7 @@ option(MSDFGEN_DISABLE_PNG "Disable PNG support" OFF)
 option(MSDFGEN_INSTALL "Generate installation target" OFF)
 option(MSDFGEN_DYNAMIC_RUNTIME "Link dynamic runtime library instead of static" OFF)
 option(BUILD_SHARED_LIBS "Generate dynamic library files instead of static" OFF)
+option(MSDFGEN_BUILD_TESTS "Build the unit and regression tests" OFF)
 
 if(MSDFGEN_CORE_ONLY AND MSDFGEN_USE_VCPKG)
     message(STATUS "Option MSDFGEN_USE_VCPKG ignored due to MSDFGEN_CORE_ONLY - core has no dependencies")
@@ -225,6 +226,16 @@ endif()
 # Hide ZERO_CHECK and ALL_BUILD targets
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER meta)
+
+# Tests
+if(MSDFGEN_BUILD_TESTS)
+    enable_testing()
+    add_executable(msdfgen-error-correction-test "${CMAKE_CURRENT_SOURCE_DIR}/tests/error-correction-test.cpp")
+    set_property(TARGET msdfgen-error-correction-test PROPERTY MSVC_RUNTIME_LIBRARY "${MSDFGEN_MSVC_RUNTIME}")
+    target_link_libraries(msdfgen-error-correction-test PRIVATE msdfgen::msdfgen-core)
+    set_property(TARGET msdfgen-error-correction-test PROPERTY VS_STARTUP_PROJECT msdfgen-error-correction-test)
+    add_test(NAME error-correction COMMAND msdfgen-error-correction-test)
+endif()
 
 # Installation
 if(MSDFGEN_INSTALL)
