@@ -1,4 +1,8 @@
 
+### Unreleased
+
+- Added `estimateSDFErrorTiled`, which evaluates the SDF reconstruction error per tile so that local artifacts can be located at arbitrary tile sizes. The tiles partition the same region as the whole-image `estimateSDFError`; their areas and error areas sum to the whole-image values, with boundary-crossing curves counted exactly once. Available for single-channel, multi-channel, and MTSDF bitmaps.
+
 ### Version 1.13.1 (2026-11-11)
 
 - Improved variable font support and added an option to print the available axes
